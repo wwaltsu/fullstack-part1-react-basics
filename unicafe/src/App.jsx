@@ -2,13 +2,11 @@ import { useState } from 'react'
 
 const Header = () => <h1>give feedback</h1>
 
-const Button = ({ onClick, text }) => {
-  return (
-    <div>
-      <button onClick={onClick}>{text}</button>
-    </div>
-  )
-}
+const Button = ({ onClick, text }) => (
+  <td>
+    <button onClick={onClick}>{text}</button>
+  </td>
+)
 
 const StatisticsLine = ({ value, text }) => (
   <tr>
@@ -46,9 +44,9 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
-  const increaseGood = () => setGood(good + 1)
-  const increaseNeutral = () => setNeutral(neutral + 1)
-  const increaseBad = () => setBad(bad + 1)
+  const handleGoodVotes = () => setGood(good + 1)
+  const handleNeutralVotes = () => setNeutral(neutral + 1)
+  const handleBadVotes = () => setBad(bad + 1)
 
   const allReviews = good + neutral + bad
   const hasReviews = allReviews > 0
@@ -61,15 +59,9 @@ const App = () => {
       <table>
         <tbody>
           <tr>
-            <td>
-              <Button onClick={increaseGood} text={'good'} />
-            </td>
-            <td>
-              <Button onClick={increaseNeutral} text={'neutral'} />
-            </td>
-            <td>
-              <Button onClick={increaseBad} text={'bad'} />
-            </td>
+            <Button onClick={handleGoodVotes} text={'good'} />
+            <Button onClick={handleNeutralVotes} text={'neutral'} />
+            <Button onClick={handleBadVotes} text={'bad'} />
           </tr>
         </tbody>
       </table>
