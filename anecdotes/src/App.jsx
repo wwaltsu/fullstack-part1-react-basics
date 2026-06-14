@@ -23,7 +23,7 @@ const App = () => {
     'Premature optimization is the root of all evil.',
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.',
-    'The only way to go fast, is to go well.',
+    'The only way to go fast, is to go well.'
   ]
 
   const [selected, setSelected] = useState(0)
@@ -35,7 +35,7 @@ const App = () => {
     4: 0,
     5: 0,
     6: 0,
-    7: 0,
+    7: 0
   })
   const handleNextAnecdote = () => {
     const getRandomIndex = Math.floor(Math.random() * anecdotes.length)
@@ -44,7 +44,7 @@ const App = () => {
   const handleVotes = () => {
     setVotes((votes) => ({
       ...votes,
-      [selected]: votes[selected] + 1,
+      [selected]: votes[selected] + 1
     }))
   }
   const voteValues = Object.values(votes)
@@ -59,7 +59,7 @@ const App = () => {
       <p>
         <Button onCLick={handleNextAnecdote} text={'next anecdote'} />
         <Button onCLick={handleVotes} text={'vote'} />
-        <Title text={'Anecdote with the votes'} />
+        <Title text={'Anecdote with most votes'} />
       </p>
       <TopAnecdote anecdotes={anecdotes[index]} votes={votes[index]} />
     </div>
